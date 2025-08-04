@@ -9,11 +9,11 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
-import SvgIcon from "@mui/icons-material/Menu";
 
-import Logo from "../assets/logo.svg?react";
 import ThemeSwitcher from "./ThemeSwitcher";
 import Link from "./CustomLink";
+import Logo from "./Logo";
+import PATHS from "../pages/paths";
 
 const pages = ["contact", "legal"];
 
@@ -30,21 +30,13 @@ export default function Header() {
     setAnchorElNav(null);
   };
 
-  const handleMenuItemClick = () => {
-    handleCloseNavMenu();
-  };
-
   return (
     <>
       <AppBar position="fixed">
         <Container maxWidth="md">
           <Toolbar variant="dense" disableGutters>
             <Link to="/">
-              <SvgIcon
-                component={Logo}
-                sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
-                inheritViewBox
-              />
+              <Logo />
             </Link>
             <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
               <IconButton
@@ -74,8 +66,8 @@ export default function Header() {
                 sx={{ display: { xs: "block", md: "none" } }}
               >
                 {pages.map((page) => (
-                  <Link to={page}>
-                    <MenuItem key={page} onClick={handleMenuItemClick}>
+                  <Link to={page === "legal" ? PATHS.LEGAL.ROOT : page}>
+                    <MenuItem key={page} onClick={handleCloseNavMenu}>
                       <Typography sx={{ textAlign: "center" }}>
                         {page}
                       </Typography>
@@ -92,10 +84,10 @@ export default function Header() {
               }}
             >
               {pages.map((page) => (
-                <Link to={page}>
+                <Link to={page === "legal" ? PATHS.LEGAL.ROOT : page}>
                   <Button
                     key={page}
-                    onClick={handleMenuItemClick}
+                    onClick={handleCloseNavMenu}
                     sx={{ my: 2, color: "white", display: "block" }}
                   >
                     {page}
