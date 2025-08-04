@@ -8,6 +8,7 @@ import {
 import { GitHub, Email, LinkedIn } from "@mui/icons-material";
 
 import Link from "./CustomLink";
+import Logo from "./Logo";
 import PATHS from "../pages/paths";
 
 export default function Footer() {
@@ -30,29 +31,47 @@ export default function Footer() {
           alignItems={{ xs: "flex-start", sm: "center" }}
         >
           {/* Left section */}
-          <Typography variant="body2" color="text.secondary">
-            © {new Date().getFullYear()} Geolysis LLC. All rights reserved.
-          </Typography>
+
+          <Stack
+            direction="row"
+            spacing={1}
+            sx={{
+              justifyContent: "flex-start",
+              alignItems: "center",
+            }}
+          >
+            <Logo />
+            <Typography variant="body2" color="text.secondary">
+              © {new Date().getFullYear()} Geolysis LLC. All rights reserved.
+            </Typography>
+          </Stack>
 
           {/* Center section */}
           <Stack direction="row" spacing={2}>
-            <Link
-              to={PATHS.LEGAL.TERMS_OF_USE}
-              underline="hover"
-              color="text.secondary"
-            >
-              Terms
-            </Link>
-            <Link
-              to={PATHS.LEGAL.PRIVACY_POLICY}
-              underline="hover"
-              color="text.secondary"
-            >
-              Privacy
-            </Link>
-            <Link to={PATHS.CONTACT} underline="hover" color="text.secondary">
-              Contact
-            </Link>
+            <Typography variant="body2" color="text.secondary">
+              <Link
+                to={PATHS.LEGAL.TERMS_OF_USE}
+                underline="hover"
+                color="text.secondary"
+              >
+                Terms
+              </Link>
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              <Link
+                to={PATHS.LEGAL.PRIVACY_POLICY}
+                underline="hover"
+                color="text.secondary"
+              >
+                Privacy
+              </Link>
+            </Typography>
+
+            <Typography variant="body2" color="text.secondary">
+              <Link to={PATHS.CONTACT} underline="hover" color="text.secondary">
+                Contact
+              </Link>
+            </Typography>
           </Stack>
 
           {/* Right section (optional icons) */}
