@@ -11,6 +11,7 @@ import TermsOfUsePage from "./pages/terms-of-use";
 import PrivacyPolicyPage from "./pages/privacy-policy";
 import HomePage from "./pages/home-page";
 import ContactPage from "./pages/contact-page";
+import PATHS from "./pages/paths";
 
 const theme = createTheme({
   colorSchemes: {
@@ -25,10 +26,10 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       { index: true, element: <HomePage /> },
-      { path: "contact", element: <ContactPage /> },
-      { path: "excel/legal", element: <LegalPage /> },
-      { path: "excel/legal/terms-of-use", element: <TermsOfUsePage /> },
-      { path: "excel/legal/privacy-policy", element: <PrivacyPolicyPage /> },
+      { path: PATHS.CONTACT, element: <ContactPage /> },
+      { path: PATHS.LEGAL.ROOT, element: <LegalPage /> },
+      { path: PATHS.LEGAL.TERMS_OF_USE, element: <TermsOfUsePage /> },
+      { path: PATHS.LEGAL.PRIVACY_POLICY, element: <PrivacyPolicyPage /> },
     ],
   },
 ]);
