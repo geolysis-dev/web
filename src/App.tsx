@@ -25,13 +25,10 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       { index: true, element: <HomePage /> },
-      {
-        path: "/legal",
-        element: <LegalPage />,
-      },
-      { path: "/legal/terms-of-use", element: <TermsOfUsePage /> },
-      { path: "/legal/privacy-policy", element: <PrivacyPolicyPage /> },
-      { path: "/contact", element: <ContactPage /> },
+      { path: "contact", element: <ContactPage /> },
+      { path: "excel/legal", element: <LegalPage /> },
+      { path: "excel/legal/terms-of-use", element: <TermsOfUsePage /> },
+      { path: "excel/legal/privacy-policy", element: <PrivacyPolicyPage /> },
     ],
   },
 ]);
