@@ -45,7 +45,6 @@ function App() {
         <CssBaseline />
         <Container maxWidth="md">
           <RouterProvider router={router} />
-          <Box sx={{ height: "100vh" }} />
         </Container>
       </ThemeProvider>
     </>
