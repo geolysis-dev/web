@@ -10,13 +10,14 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import SvgIcon from "@mui/icons-material/Menu";
-import Switch from "@mui/material/Switch";
 
 import Logo from "../assets/logo.svg?react";
+import ThemeSwitcher from "./ThemeSwitcher";
+import Link from "./CustomLink";
 
-const pages = ["Contact", "Legal"];
+const pages = ["contact", "legal"];
 
-function Header() {
+export default function Header() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null,
   );
@@ -24,69 +25,90 @@ function Header() {
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
+
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
+  const handleMenuItemClick = () => {
+    handleCloseNavMenu();
+  };
+
   return (
-    <AppBar position="fixed">
-      <Container maxWidth="md">
-        <Toolbar variant="dense" disableGutters>
-          <SvgIcon
-            component={Logo}
-            sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
-            inheritViewBox
-          />
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
+    <>
+      <AppBar position="fixed">
+        <Container maxWidth="md">
+          <Toolbar variant="dense" disableGutters>
+            <Link to="/">
+              <SvgIcon
+                component={Logo}
+                sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
+                inheritViewBox
+              />
+            </Link>
+            <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+              <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleOpenNavMenu}
+                color="inherit"
+              >
+                <MenuIcon />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorElNav}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "left",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "left",
+                }}
+                open={Boolean(anchorElNav)}
+                onClose={handleCloseNavMenu}
+                sx={{ display: { xs: "block", md: "none" } }}
+              >
+                {pages.map((page) => (
+                  <Link to={page}>
+                    <MenuItem key={page} onClick={handleMenuItemClick}>
+                      <Typography sx={{ textAlign: "center" }}>
+                        {page}
+                      </Typography>
+                    </MenuItem>
+                  </Link>
+                ))}
+              </Menu>
+            </Box>
+            <Box
+              sx={{
+                flexGrow: 1,
+                display: { xs: "none", md: "flex" },
+                justifyContent: "center",
               }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{ display: { xs: "block", md: "none" } }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography sx={{ textAlign: "center" }}>{page}</Typography>
-                </MenuItem>
+                <Link to={page}>
+                  <Button
+                    key={page}
+                    onClick={handleMenuItemClick}
+                    sx={{ my: 2, color: "white", display: "block" }}
+                  >
+                    {page}
+                  </Button>
+                </Link>
               ))}
-            </Menu>
-          </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                {page}
-              </Button>
-            ))}
-          </Box>
+            </Box>
 
-          <Switch />
-        </Toolbar>
-      </Container>
-    </AppBar>
+            <ThemeSwitcher />
+          </Toolbar>
+        </Container>
+      </AppBar>
+      <Toolbar variant="dense"></Toolbar>
+    </>
   );
 }
-export default Header;
