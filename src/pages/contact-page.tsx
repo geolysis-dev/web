@@ -37,17 +37,16 @@ export default function ContactPage() {
             Contact Us
           </Typography>
 
-          <Typography variant="body1">
-            Send us an email at{" "}
-            <Link
-              href="mailto:support@geolysis.io"
-              target="_blank"
-              rel="noopener noreferrer"
-              underline="always"
-            >
-              support@geolysis.io
-            </Link>
-          </Typography>
+          <Typography variant="body1">Send us an email </Typography>
+
+          <Link
+            href="mailto:support@geolysis.io"
+            target="_blank"
+            rel="noopener noreferrer"
+            underline="always"
+          >
+            support@geolysis.io
+          </Link>
 
           <Typography variant="body2" color="text.secondary">
             We'll get back to you within 24 hours.
