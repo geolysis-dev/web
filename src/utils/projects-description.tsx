@@ -1,5 +1,3 @@
-import { LogoAI, LogoDKT, LogoPKG, LogoXLS } from "../components/Logo";
-
 import { AIIcon, DesktopIcon, ExcelIcon, OpenSourceIcon } from "./icons";
 
 export const PROJECTS = [
@@ -8,7 +6,6 @@ export const PROJECTS = [
     description:
       "Open-source python package for geotechnical analysis and modeling.",
     link: "https://github.com/patrickboateng/geolysis",
-    logo: LogoPKG,
     icon: OpenSourceIcon,
   },
   {
@@ -16,7 +13,6 @@ export const PROJECTS = [
     description:
       "Microsoft Excel addin that provides geotechnical functions (available) and data entry capabilities. (in development)",
     link: "",
-    logo: LogoXLS,
     icon: ExcelIcon,
   },
   {
@@ -24,7 +20,6 @@ export const PROJECTS = [
     description:
       "Desktop application for graphically modeling geotechnical simulation.",
     link: "",
-    logo: LogoDKT,
     icon: DesktopIcon,
   },
   {
@@ -32,7 +27,6 @@ export const PROJECTS = [
     description:
       "Offers machine learning models that are trained using geotechnical data.",
     link: "",
-    logo: LogoAI,
     icon: AIIcon,
   },
 ];
