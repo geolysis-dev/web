@@ -3,19 +3,27 @@ import CustomBox from "../components/CustomBox";
 import Typography from "@mui/material/Typography";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
+import Breadcrumbs from "@mui/material/Breadcrumbs";
 import { Link as MuiLink } from "@mui/material";
 
 import Link from "../components/CustomLink";
-import PATHS from "./paths";
+import PATHS from "../utils/paths";
 
 export default function PrivacyPolicyPage() {
   return (
     <CustomBox>
+      <Breadcrumbs aria-label="breadcrumb">
+        <Link to={PATHS.LEGAL.ROOT} underline="hover" color="inherit">
+          legal
+        </Link>
+        <Typography sx={{ color: "text.primary" }}>privacy</Typography>
+      </Breadcrumbs>
+
       <Typography
         variant="h2"
         component="h1"
         gutterBottom
-        sx={{ textAlign: "center", fontWeight: "bold" }}
+        sx={{ textAlign: "center", fontWeight: "bold", m: 4 }}
       >
         Privacy Policy
       </Typography>
