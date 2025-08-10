@@ -9,7 +9,7 @@ import { GitHub, Email, LinkedIn } from "@mui/icons-material";
 
 import Link from "./CustomLink";
 import Logo from "./Logo";
-import PATHS from "../pages/paths";
+import PATHS from "../utils/paths";
 
 export default function Footer() {
   return (
