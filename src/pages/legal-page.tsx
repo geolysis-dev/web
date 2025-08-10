@@ -32,21 +32,11 @@ export default function LegalPage() {
         Terms & policies
       </Typography>
       <nav aria-label="main mailbox folders">
-        <List
-          subheader={
-            <ListSubheader component="div" id="nested-list-subheader">
-              <Typography
-                variant="h5"
-                component="h2"
-                gutterBottom
-                sx={{ pb: 2 }}
-              >
-                Legal
-              </Typography>
-            </ListSubheader>
-          }
-          sx={{ bgcolor: "background.paper" }}
-        >
+        <Typography variant="h5" component="h2" gutterBottom sx={{ pb: 2 }}>
+          Legal
+        </Typography>
+
+        <List>
           <ListItem
             onClick={() => handleLinkItemClick("terms-of-use")}
             disablePadding
