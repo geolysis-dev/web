@@ -13,7 +13,7 @@ import MenuItem from "@mui/material/MenuItem";
 import ThemeSwitcher from "./ThemeSwitcher";
 import Link from "./CustomLink";
 import Logo from "./Logo";
-import PATHS from "../pages/paths";
+import PATHS from "../utils/paths";
 
 const pages = ["contact", "legal"];
 
@@ -34,9 +34,9 @@ export default function Header() {
     <>
       <AppBar position="fixed">
         <Container maxWidth="md">
-          <Toolbar variant="dense" disableGutters>
+          <Toolbar disableGutters>
             <Link to="/">
-              <Logo />
+              <Logo sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
             </Link>
             <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
               <IconButton
@@ -66,8 +66,11 @@ export default function Header() {
                 sx={{ display: { xs: "block", md: "none" } }}
               >
                 {pages.map((page) => (
-                  <Link to={page === "legal" ? PATHS.LEGAL.ROOT : page}>
-                    <MenuItem key={page} onClick={handleCloseNavMenu}>
+                  <Link
+                    key={page}
+                    to={page === "legal" ? PATHS.LEGAL.ROOT : page}
+                  >
+                    <MenuItem onClick={handleCloseNavMenu}>
                       <Typography sx={{ textAlign: "center" }}>
                         {page}
                       </Typography>
@@ -79,16 +82,36 @@ export default function Header() {
             <Box
               sx={{
                 flexGrow: 1,
+                display: { xs: "flex", md: "none" },
+                alignItems: "center",
+                justifyContent: "center",
+                width: "100%",
+              }}
+            >
+              <Link to="/">
+                <Logo sx={{ mr: 1 }} />
+              </Link>
+            </Box>
+            <Box
+              sx={{
+                flexGrow: 1,
                 display: { xs: "none", md: "flex" },
                 justifyContent: "center",
               }}
             >
               {pages.map((page) => (
-                <Link to={page === "legal" ? PATHS.LEGAL.ROOT : page}>
+                <Link
+                  key={page}
+                  to={page === "legal" ? PATHS.LEGAL.ROOT : page}
+                >
                   <Button
-                    key={page}
                     onClick={handleCloseNavMenu}
-                    sx={{ my: 2, color: "white", display: "block" }}
+                    sx={{
+                      my: 2,
+                      color: "white",
+                      display: "block",
+                      textTransform: "lowercase",
+                    }}
                   >
                     {page}
                   </Button>
