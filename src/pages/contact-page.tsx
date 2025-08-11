@@ -40,12 +40,11 @@ export default function ContactPage() {
           <Typography variant="body1">Send us an email </Typography>
 
           <Link
-            href="mailto:support@geolysis.io"
-            target="_blank"
+            href="mailto:support@geolysisllc.com"
             rel="noopener noreferrer"
             underline="always"
           >
-            support@geolysis.io
+            support@geolysisllc.com
           </Link>
 
           <Typography variant="body2" color="text.secondary">
