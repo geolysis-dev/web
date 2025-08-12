@@ -76,7 +76,10 @@ export default function Footer() {
 
           {/* Right section (optional icons) */}
           <Stack direction="row" spacing={1}>
-            <MuiLink href="mailto:support@geolysis.io" color="text.secondary">
+            <MuiLink
+              href="mailto:support@geolysisllc.com"
+              color="text.secondary"
+            >
               <Email fontSize="small" />
             </MuiLink>
             <MuiLink
