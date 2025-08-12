@@ -6,6 +6,7 @@ export const PROJECTS = [
     description:
       "Open-source python package for geotechnical analysis and modeling.",
     link: "https://github.com/patrickboateng/geolysis",
+    label: "Learn More",
     icon: OpenSourceIcon,
   },
   {
@@ -13,6 +14,7 @@ export const PROJECTS = [
     description:
       "Microsoft Excel addin that provides geotechnical functions (available) and data entry capabilities. (in development)",
     link: "",
+    label: "In active development",
     icon: ExcelIcon,
   },
   {
@@ -20,6 +22,7 @@ export const PROJECTS = [
     description:
       "Desktop application for graphically modeling geotechnical simulation.",
     link: "",
+    label: "In development",
     icon: DesktopIcon,
   },
   {
@@ -27,6 +30,7 @@ export const PROJECTS = [
     description:
       "Offers machine learning models that are trained using geotechnical data.",
     link: "",
+    label: "In development",
     icon: AIIcon,
   },
 ];

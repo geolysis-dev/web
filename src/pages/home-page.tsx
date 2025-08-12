@@ -11,10 +11,11 @@ type ProjectProp = {
   name: string;
   description: string;
   link: string;
+  label: string;
   icon: React.ElementType;
 };
 
-const ProjectCard = ({ name, description, link, icon }: ProjectProp) => {
+const ProjectCard = ({ name, description, link, label, icon }: ProjectProp) => {
   const Icon = icon;
 
   return (
@@ -49,7 +50,8 @@ const ProjectCard = ({ name, description, link, icon }: ProjectProp) => {
             href={link || undefined}
             target={link && "_blank"}
             clickable={Boolean(link)}
-            label={link ? "Learn More" : "In active development"}
+            label={label}
+            // label={link ? "Learn More" : "In active development"}
             color={link ? "primary" : "default"}
           />
           <Icon sx={{ alignSelf: "center", fontSize: 24 }} />
@@ -78,7 +80,7 @@ export default function HomePage() {
         columns={{ xs: 4, sm: 8, md: 12 }}
         justifyContent="center" // keeps grid centered at all times
       >
-        {PROJECTS.map(({ name, description, link, icon }, idx) => (
+        {PROJECTS.map(({ name, description, link, label, icon }, idx) => (
           <Grid
             size={6}
             key={idx}
@@ -91,6 +93,7 @@ export default function HomePage() {
               name={name}
               description={description}
               link={link}
+              label={label}
               icon={icon}
             />
           </Grid>
