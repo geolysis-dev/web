@@ -3,20 +3,15 @@ import CustomBox from "../components/CustomBox";
 import Typography from "@mui/material/Typography";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
-import Breadcrumbs from "@mui/material/Breadcrumbs";
 
+import LegalPageBreadcrumbs from "../components/LegalPageBreadcrumbs";
 import Link from "../components/CustomLink";
 import PATHS from "../utils/paths";
 
 export default function TermsOfUsePage() {
   return (
     <CustomBox>
-      <Breadcrumbs aria-label="breadcrumb">
-        <Link to={PATHS.LEGAL.ROOT} underline="hover" color="inherit">
-          legal
-        </Link>
-        <Typography sx={{ color: "text.primary" }}>terms</Typography>
-      </Breadcrumbs>
+      <LegalPageBreadcrumbs pathSlug="terms" />
 
       <Typography
         variant="h2"
