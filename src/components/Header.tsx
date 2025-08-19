@@ -71,7 +71,12 @@ export default function Header() {
                     to={page === "legal" ? PATHS.LEGAL.ROOT : page}
                   >
                     <MenuItem onClick={handleCloseNavMenu}>
-                      <Typography sx={{ textAlign: "center" }}>
+                      <Typography
+                        sx={{
+                          textAlign: "center",
+                          textTransform: "capitalize",
+                        }}
+                      >
                         {page}
                       </Typography>
                     </MenuItem>
@@ -110,7 +115,7 @@ export default function Header() {
                       my: 2,
                       color: "white",
                       display: "block",
-                      textTransform: "lowercase",
+                      textTransform: "capitalize",
                     }}
                   >
                     {page}
